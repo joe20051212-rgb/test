@@ -1,7 +1,0 @@
-{
-    "vncip": "127.0.0.1",
-    "vncport": 5900,
-    "websrv": "false",
-    "wsip": "0.0.0.0",
-    "wsport": 8085,
-}
