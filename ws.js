@@ -1,5 +1,8 @@
+const config = require('config');
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8081 });
+const port = config.get('wsport'); // config
+
+const wss = new WebSocket.Server(${wsport}); // websocket port
 
 console.log('[log]:{S}:(01)'); // 01 means server started
 
