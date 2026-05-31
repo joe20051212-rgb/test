@@ -12,7 +12,7 @@ wss.on('connection', (ws) => {
   });
   
   ws.on('error', (error) => {
-    console.error('[log]:{E}:', error); // client and other error
+    console.error('[log]:{E}:', error); // client and other errors
   });
   
   ws.on('close', () => {
