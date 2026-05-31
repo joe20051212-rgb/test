@@ -26,3 +26,7 @@ wss.on('connection', (ws) => {
 wss.on('error', (error) => {
   console.error('[log]:{S.E}:', error); // server errors get there own line
 });
+// note : ive tested nothing if it works
+// i hope it works
+//.... do i suffer or do i suffer ?
+//f##k it ima just go to sleep its already 1am at night (2026.06.1/1:07)
