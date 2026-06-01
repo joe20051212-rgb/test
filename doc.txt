@@ -1,0 +1,7 @@
+Server logs:
+  + : means a new client or user has connected
+  - : means a client or user has left or disconnected
+  01 : means the server started
+  {S}: means it is a server log
+  {S.E} :  means its a server error
+    
