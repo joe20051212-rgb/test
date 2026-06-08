@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const config = require('./config.json'); // local config only
 
-const wsUrl = `ws://localhost:${config.wsport}`; // websocket server url
+const wsUrl = `ws://localhost:${config.wsport}`; // websocket server url , it is set to localhost for tests , ill change it later
 const ws = new WebSocket(wsUrl);
 
 ws.on('open', () => {
@@ -20,5 +20,5 @@ ws.on('close', () => {
   console.log('[log]:{C}:(-)'); // client disconnected
 });
 
-// Example: send a message to the server
-// ws.send('Hello Server!');
+// simeple message to test the code
+ ws.send('Testing 123456789 !?-/*=)ç&"é');
