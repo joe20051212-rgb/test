@@ -1,0 +1,13 @@
+{
+  "name": "ws",
+  "version": "b_0.1",
+  "description": "sample ws project (beta)",
+  "main": "ws.js",
+  "scripts": {
+    "start": "node index.js",
+    "install": "npm install"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
+}
