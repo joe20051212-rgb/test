@@ -1,30 +1,50 @@
-const config = require('./config.json'); // local config only
+const fs = require('fs');
+const path = require('path');
 const WebSocket = require('ws');
-const port = config.wsport; // config
 
-const wss = new WebSocket.Server({ port: port }); // websocket port
+// loads the config
+const configPath = path.join(process.cwd(), 'config.json');
 
-console.log('[log]:{S}:(01)'); // 01 means server started
+let config = {};
+
+try {
+    config = JSON.parse(
+        fs.readFileSync(configPath, 'utf8')
+    );
+} catch (error) {
+    console.error('[log]:{C.E}: Failed to load config.json');
+    console.error(error);
+    process.exit(1);
+}
+
+// config port
+const port = config.wsport || 8080;
+
+// websocket server
+const wss = new WebSocket.Server({ port });
+
+console.log('[log]:{S}:(01)');
+console.log('[log]:{CFG}:', config);
+console.log('[log]:{PORT}:', port);
 
 wss.on('connection', (ws) => {
-  console.log('[log]:{S}:(+)'); // new user
-  ws.send('+');
-  
-  ws.on('message', (data) => {
-    console.log('[log]:{M}:', data); // new messege
-  });
-  
-  ws.on('error', (error) => {
-    console.error('[log]:{E}:', error); // client and other errors
-  });
-  
-  ws.on('close', () => {
-    console.log('[log]:{S}:(-)'); // lost user
-  });
+    console.log('[log]:{S}:(+)');
+
+    ws.send('+');
+
+    ws.on('message', (data) => {
+        console.log('[log]:{M}:', data.toString());
+    });
+
+    ws.on('error', (error) => {
+        console.error('[log]:{E}:', error);
+    });
+
+    ws.on('close', () => {
+        console.log('[log]:{S}:(-)');
+    });
 });
 
 wss.on('error', (error) => {
-  console.error('[log]:{S.E}:', error); // server errors get there own line
+    console.error('[log]:{S.E}:', error);
 });
-// note : ive tested nothing if it works
-// UPD : it works :D
