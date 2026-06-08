@@ -6,6 +6,8 @@ const ws = new WebSocket(wsUrl);
 
 ws.on('open', () => {
   console.log('[log]:{C}:(01)'); // 01 means client connected
+  // Send message only after connection is open
+  ws.send('Testing 123456789 !?-/*=)ç&"é'); // bug fixes
 });
 
 ws.on('message', (data) => {
@@ -19,6 +21,3 @@ ws.on('error', (error) => {
 ws.on('close', () => {
   console.log('[log]:{C}:(-)'); // client disconnected
 });
-
-// simeple message to test the code
- ws.send('Testing 123456789 !?-/*=)ç&"é');
