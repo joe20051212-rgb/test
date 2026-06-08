@@ -1,5 +1,3 @@
-# codetest's
-random code or sm
 # ws.js
 run npm install then just npm run serve
 # running wscient.js
